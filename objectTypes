@@ -1,0 +1,54 @@
+print(soup.div.name)
+#prints div
+
+
+print(soup.div.attrs) # prints the attributes in the form of dictionary
+# {'id': 'example'}
+
+print(soup.p) #gets only the first occurence of p tags
+ #<p class="text">Click to learn more about each turtle</p>
+
+print(soup.p.string) #Grabs the string value inside the tag
+#outputs Click to learn more about each turtle
+
+print(soup.p.attrs) 
+# {'class': ['text']}         here output is a key-value pair as before but the value is a list because a class attribute can have more classes.
+
+#To view the all the children of a tag,
+for c in soup.div.children:
+  print(c)
+  
+#To find all occurences of a tag, use find_all()
+turtle_links = soup.find_all('a')
+for link in turtle_links:
+  print('The link at index {} is \n{}'.format(turtle_links.index(link), link))
+  print()
+  
+#OUTPUT
+
+The link at index 0 is 
+<a class="more-info" href="aesop.html"><img class="headshot" src="aesop.png"/></a>
+
+The link at index 1 is 
+<a class="more-info" href="caesar.html"><img class="headshot" src="caesar.png"/></a>
+
+The link at index 2 is 
+<a class="more-info" href="sulla.html"><img class="headshot" src="sulla.png"/></a>
+
+The link at index 3 is 
+<a class="more-info" href="spyro.html"><img class="headshot" src="spyro.png"/></a>
+
+The link at index 4 is 
+<a class="more-info" href="zelda.html"><img class="headshot" src="zelda.png"/></a>
+
+The link at index 5 is 
+<a class="more-info" href="bandicoot.html"><img class="headshot" src="bandicoot.png"/></a>
+
+The link at index 6 is 
+<a class="more-info" href="hal.html"><img class="headshot" src="hal.png"/></a>
+
+The link at index 7 is 
+<a class="more-info" href="mock.html"><img class="headshot" src="mock.png"/></a>
+
+The link at index 8 is 
+<a class="more-info" href="sparrow.html"><img class="headshot" src="sparrow.png"/></a>
