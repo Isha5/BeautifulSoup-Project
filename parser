@@ -1,0 +1,108 @@
+# importing the requests library from python to send requests to websites to fetch the content
+import requests
+
+#import soup library
+from bs4 import BeautifulSoup
+
+# sending request to the desired url
+webpage_response = requests.get('https://content.codecademy.com/courses/beautifulsoup/shellter.html')
+
+#Grab the content from the desired url
+webpage = webpage_response.content
+
+
+
+#Output with different html tags like div, h1, p, anchor, with attributes class, id, src etc.
+b'<!DOCTYPE html>\n<html>\n  <head>\n    
+<meta charset="utf-8">\n    
+<title>Turtle Shellter</title>\n      
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">\n 
+<link rel=\'stylesheet\' type=\'text/css\' href=\'style.css\'>\n  </head>\n\n  <body>\n    
+<div class="banner">\n      
+<h1>The Shellter</h1>\n        
+<span class="brag">The #1 Turtle Adoption website!</span>\n  
+</div>\n\n      <div class="about">\n       
+<p class="text">Click to learn more about each turtle</p>\n     
+</div>\n\n    <div class="grid">\n      <div class="box adopt">\n       
+<a href="aesop.html" class="more-info"><img src="aesop.png" class="headshot"></a>\n  
+<p>Aesop</p>\n      </div>\n\n      <div class="box adopt">\n        
+<a href="caesar.html" class="more-info"><img src="caesar.png" class="headshot"></a>\n     
+<p>Caesar</p>\n      </div>\n\n      <div class="box adopt">\n         
+<a href="sulla.html" class="more-info"><img src="sulla.png" class="headshot"></a>\n   
+<p>Sulla</p>\n      </div>\n      <div class="box adopt">\n          
+<a href="spyro.html" class="more-info"><img src="spyro.png" class="headshot"></a>\n       
+<p>Spyro</p>\n      </div>\n\n      <div class="box adopt">\n        
+<a href="zelda.html" class="more-info"><img src="zelda.png" class="headshot"></a>\n     
+<p>Zelda</p>\n      </div>\n\n      <div class="box adopt">\n       
+<a href="bandicoot.html" class="more-info"><img src="bandicoot.png" class="headshot"></a>\n  
+<p>Bandicoot</p>\n      </div>\n      \n      <div class="box adopt">\n      
+<a href="hal.html" class="more-info"><img src="hal.png" class="headshot"></a>\n    
+<p>Hal</p>\n      </div>\n\n      <div class="box adopt">\n          
+<a href="mock.html" class="more-info"><img src="mock.png" class="headshot"></a>\n        
+<p>Mock</p>\n      </div>\n\n      <div class="box adopt">\n       
+<a href="sparrow.html" class="more-info"><img src="sparrow.png" class="headshot"></a>\n     
+<p>Captain Sparrow</p>\n      </div>\n    </div>\n  </body>\n\n</html>\n'
+
+
+# Using the BeautifulSoup Object to parse the above messed output into a structured format using html.parser
+soup = BeautifulSoup(webpage, "html.parser")
+print(soup)
+
+#output
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Turtle Shellter</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="banner">
+<h1>The Shellter</h1>
+<span class="brag">The #1 Turtle Adoption website!</span>
+</div>
+<div class="about">
+<p class="text">Click to learn more about each turtle</p>
+</div>
+<div class="grid">
+<div class="box adopt">
+<a class="more-info" href="aesop.html"><img class="headshot" src="aesop.png"/></a>
+<p>Aesop</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="caesar.html"><img class="headshot" src="caesar.png"/></a>
+<p>Caesar</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="sulla.html"><img class="headshot" src="sulla.png"/></a>
+<p>Sulla</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="spyro.html"><img class="headshot" src="spyro.png"/></a>
+<p>Spyro</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="zelda.html"><img class="headshot" src="zelda.png"/></a>
+<p>Zelda</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="bandicoot.html"><img class="headshot" src="bandicoot.png"/></a>
+<p>Bandicoot</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="hal.html"><img class="headshot" src="hal.png"/></a>
+<p>Hal</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="mock.html"><img class="headshot" src="mock.png"/></a>
+<p>Mock</p>
+</div>
+<div class="box adopt">
+<a class="more-info" href="sparrow.html"><img class="headshot" src="sparrow.png"/></a>
+<p>Captain Sparrow</p>
+</div>
+</div>
+</body>
+</html>
