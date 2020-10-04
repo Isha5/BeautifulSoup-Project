@@ -1,0 +1,40 @@
+#using regex, import re library
+
+import re
+soup.find_all(re.compile("[ou]l"))
+
+#outputs every <ol> and every <ul> that the page contains
+
+# want all of the h1 - h9 tags ??
+soup.find_all(re.compile("h[1-9]"))
+
+# we can send Lists into the find-all() function
+soup.find_all(['h1', 'a', 'p'])
+
+#we can use attribute names to grab that tags which contain these attr
+soup.find_all(attrs={'class':'banner', 'id':'jumbotron'})
+
+#using functions to declare complex inputs into the find_all()
+def getReqattr_Strings(tag):
+    return tag.attr('class') == "banner" and tag.string == "Hello world"
+
+soup.find_all(getReqattr_Strings)
+
+
+
+
+
+
+#Select for CSS Selectors
+
+soup.select(".recipeLink")        #To select classes
+
+soup.select("#selected")          #To select id
+
+
+
+#Reading Text
+.get_text() is used to fetch the text deom whatever tags we have
+soup.get_text('|')  #prints pipe operator when the text of a new tag begins
+
+
